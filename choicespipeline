@@ -6,7 +6,7 @@ pipeline {
         wrap([$class: 'BuildUser']) {
           def userEmail = env.BUILD_USER_EMAIL
           def options = []
-          if (userEmail == 'user1@example.com') {
+          if (userEmail == 'markandeyulu.reddi@gmail.com') {
             options = ['Option 1', 'Option 2', 'Option 3']
           } else if (userEmail == 'user2@example.com') {
             options = ['Option 4', 'Option 5', 'Option 6']

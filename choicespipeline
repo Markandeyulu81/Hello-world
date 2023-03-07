@@ -1,0 +1,30 @@
+pipeline {
+  agent any
+  stages {
+    stage('Choose an option') {
+      steps {
+        wrap([$class: 'BuildUser']) {
+          def userEmail = env.BUILD_USER_EMAIL
+          def options = []
+          if (userEmail == 'user1@example.com') {
+            options = ['Option 1', 'Option 2', 'Option 3']
+          } else if (userEmail == 'user2@example.com') {
+            options = ['Option 4', 'Option 5', 'Option 6']
+          } else {
+            options = ['Option 7', 'Option 8', 'Option 9']
+          }
+          script {
+            def choice = input(
+              id: 'userChoice', message: 'Choose an option',
+              parameters: [[$class: 'ChoiceParameter', 
+                            name: 'option', 
+                            choices: options.join('\n'), 
+                            description: 'Select an option']]
+            )
+            echo "User selected option: ${choice}"
+          }
+        }
+      }
+    }
+  }
+}

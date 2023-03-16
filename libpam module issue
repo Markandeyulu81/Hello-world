@@ -1,0 +1,12 @@
+**************libpam module issue
+ls /lib/x86_64-linux-gnu/security/ | grep pam_faillock Replace pam.tally2.so with pam_faillock.so in below files sudo vim /etc/pam.d/common-auth
+sudo vim /etc/pam.d/common-account ls /lib/x86_64-linux-gnu/security/ | grep tally sudo rm /lib/x86_64-linux-gnu/security/pam_tally*
+
+
+**************libpam module issue
+ls /lib/x86_64-linux-gnu/security/ | grep pam_faillock 
+Replace pam.tally2.so with pam_faillock.so in below files
+sudo vim /etc/pam.d/common-auth
+sudo vim /etc/pam.d/common-account 
+ls /lib/x86_64-linux-gnu/security/ | grep tally
+sudo rm /lib/x86_64-linux-gnu/security/pam_tally*
